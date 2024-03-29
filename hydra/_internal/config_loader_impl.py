@@ -503,6 +503,7 @@ class ConfigLoaderImpl(ConfigLoader):
             package = package_override
 
         if package is not None and package != "":
+            package = package.lstrip("...")
             cfg = OmegaConf.create()
             OmegaConf.update(cfg, package, ret.config, merge=False)
             ret = copy.copy(ret)
